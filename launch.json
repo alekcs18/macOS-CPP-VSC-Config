@@ -15,7 +15,7 @@
         "environment": [],
         "externalConsole": true,
         "MIMode": "lldb",
-        // "preLaunchTask": "C/C++: clang++ build active file"
+         "preLaunchTask": "C/C++: clang++ build active file"
       },
       {
         "name": "LLDB (ARM) - Debug active file",
@@ -34,6 +34,19 @@
         "args": [],
         "cwd": "${fileDirname}",
         "externalConsole": true
+      },
+      {
+        "name": "clang++ - Run (No Debug)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "externalConsole": true,
+        "noDebug": true,
+        "MIMode": "lldb",
+        "preLaunchTask": "C/C++: clang++ build active file"
       }
     ]
   }
