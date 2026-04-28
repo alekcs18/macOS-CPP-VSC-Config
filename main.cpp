@@ -10,10 +10,11 @@ using namespace std;
 
 int main(){    //012345678
     string a = {"is string"};
-    cout<<a.size()<<endl;
-    cout<<a.capacity()<<endl;
-    for(int i = 0; i <a.size() - 8; ++i){
-        cout<<a[1];
-    }
+    string b = a.substr(3,3); // 3,1 is s 3,2 is st, 3,3 is str
+    string c = a.substr(0, 2); // 0,0 is blank 0,1 is i  0,2 is is
+    size_t pos = a.find("str");      // can be used to see position
+    cout<< b + c;
+    cout<< pos;
+    
     return 0;
 }
