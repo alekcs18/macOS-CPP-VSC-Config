@@ -8,13 +8,34 @@ using namespace std;
 
 
 
-int main(){    //012345678
-    string a = {"is string"};
-    string b = a.substr(3,3); // 3,1 is s 3,2 is st, 3,3 is str
-    string c = a.substr(0, 2); // 0,0 is blank 0,1 is i  0,2 is is
-    size_t pos = a.find("str");      // can be used to see position
-    cout<< b + c;
-    cout<< pos;
+int main(){    
+    vector<int> v1 = {1, 2, 3};
+    vector<int> v2 = {4, 5, 6};
+    vector<int> v3 = {7, 8, 9};
+    cout<<"(";
+    for(int x : v1){
+        cout<< x << " ";
+    }
+    cout<<")";
+    cout<<endl;
+    cout<<"(";
+    for(int y : v2){
+        
+        cout<< y<< " ";
+        
+
+    }
+    cout<<")";
+    cout<<endl;
+    cout<<"(";
+    for(int z : v3){
+        cout<< z<< " ";
+    }
+    cout<<")";
+
+    cout<<endl;
     
     return 0;
+    
+
 }
