@@ -4,44 +4,46 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 using namespace std;
 
+class Textura{
+
+public:
+Textura(){cout<<"Loaded"<<endl;};
+virtual ~Textura(){cout<<"Unloaded"<<endl;};
 
 
-void matrix(vector<int> v1, vector<int> v2,vector<int> v3){
-    cout<<"(";
-    for(int x : v1){
-        cout<< x << " ";
-    }
-    cout<<")";
-    cout<<endl;
-    cout<<"(";
-    for(int y : v2){
-        
-        cout<< y<< " ";
-        
 
-    }
-    cout<<")";
-    cout<<endl;
-    cout<<"(";
-    for(int z : v3){
-        cout<< z<< " ";
-    }
-    cout<<")";
+};
 
-    cout<<endl;
-}
+
+class OakTreeTextura : public Textura{
+
+public:
+OakTreeTextura(){};
+~OakTreeTextura(){};
+
+
+};
+
+
+// int someFunction(make_shared<MyClass> &somePtr){
+//     if(*somePtr == 0){
+//         cout<<"Container is empty";
+//         return 0;
+//     } else{
+//         return *somePtr;
+//     }
+
+// }
 
 
 int main(){    
-    vector<int> v1 = {1, 2, 3};
-    vector<int> v2 = {4, 5, 6};
-    vector<int> v3 = {7, 8, 9};
-    matrix(v1, v2, v3);
-    cout<<endl;
-    matrix(v3, v2, v1);
-    return 0;
-    
+// auto ptr = make_unique<int>();
+// auto ptr1 = make_shared<int>(); //continue at 1:16:00 smart ptr
+auto ptr = make_shared<OakTreeTextura>();
+cout<< ptr.get() <<endl;
+
 
 }
