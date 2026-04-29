@@ -43,7 +43,16 @@ int main(){
 // auto ptr = make_unique<int>();
 // auto ptr1 = make_shared<int>(); //continue at 1:16:00 smart ptr
 auto ptr = make_shared<OakTreeTextura>();
-cout<< ptr.get() <<endl;
+OakTreeTextura tree = OakTreeTextura();
+OakTreeTextura leafs = OakTreeTextura();
 
+vector<shared_ptr<Textura>> vecTexture;
+vecTexture.push_back(ptr);
+for(int i = 0; i < vecTexture.size(); i++){
+    cout<<"Vector stored textures: "<<vecTexture[i]<<endl;
+}
+
+
+return 0;
 
 }
