@@ -43,17 +43,19 @@ class Caca : public nevoiUmane{
 int main(){    
 
 
-
 int scoreboardCaca = 0;
 int scoreboardPipi = 0;
 
 bool trebuieSaFac = true;
 while(trebuieSaFac){
-cout<<"De cate ori ati facut caca: "<<scoreboardCaca<<endl;
-cout<<"De cate ori ati facut pipi: "<<scoreboardPipi<<endl;
+cout<<"\nBine ati venit la veceu simulator!\n\n";
+
+cout<<"\n ~~~ScoreBoard~~~~\n";
+cout<<"\nDe cate ori ati facut caca: "<<scoreboardCaca<<"\n";
+cout<<"\nDe cate ori ati facut pipi: "<<scoreboardPipi<<"\n";
 
 int choice = 0;
-cout<<"Alegeti ce vreti sa faceti: \n"<<"1.Pipi \n"<<"2. Caca \n"<<"3. Exit \n";
+cout<<"\nAlegeti ce vreti sa faceti: \n1. Pipi \n2. Caca \n3. Exit \nChoice: ";
 
 while(true){
 if(!(cin>>choice))
