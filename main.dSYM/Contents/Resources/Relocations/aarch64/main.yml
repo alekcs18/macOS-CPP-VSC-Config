@@ -1,5 +1,5 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/alekcs_/macOS-CPP-VSC-Config/main'
+binary-path:     main
 relocations:     []
 ...
