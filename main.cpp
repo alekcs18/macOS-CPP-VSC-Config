@@ -6,6 +6,7 @@
 #include <vector>
 #include <memory>
 #include <array>
+#include <limits>
 using namespace std;
 
 
@@ -53,8 +54,15 @@ cout<<"De cate ori ati facut pipi: "<<scoreboardPipi<<endl;
 
 int choice = 0;
 cout<<"Alegeti ce vreti sa faceti: \n"<<"1.Pipi \n"<<"2. Caca \n"<<"3. Exit \n";
-cin>>choice; 
 
+while(true){
+if(!(cin>>choice))
+{
+    cout<<"You can only choose from: 1 ; 2 ; 3"<<endl;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    continue;
+}
 
 if(choice == 1){ 
 Pipi amFacutPipi = Pipi();
@@ -65,6 +73,7 @@ for(int i = 0; i < facPipi.size(); i++){
     facPipi[i];
     scoreboardPipi++;
 }
+break;
 }
 if(choice == 2){ 
 Caca amFacutCaca = Caca();
@@ -75,14 +84,14 @@ for(int j = 0; j < facCaca.size(); j++){
     facCaca[j];
     scoreboardCaca++;
 }
-
+break;
 }
 if(choice == 3){
     cout<<"Thank you for playing Veceu Simulator!"<<endl;
     return 0;
 
 }
-
+}
 char playAgain;
 do{
 cout << "Do you want to play again?(y/n)\n";
