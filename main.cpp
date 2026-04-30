@@ -9,31 +9,70 @@
 using namespace std;
 
 
-// class MyClass{
-//     public:
-//     MyClass(){
-//         cout<<" Constructed "<<endl;
-//     };
-//     ~MyClass(){
-//         cout<<" Destroyed "<<endl;
-//     };
+class nevoiUmane{
+    private:
+    int obiectNevoi;
+    public:
+    nevoiUmane(){
+        cout<<"exista o nevoie: "<<endl;
+    }
+    virtual ~nevoiUmane(){};
+};
 
 
-// };
 
-void printData(array<unsigned int, 97> alex){
-    cout<<"Current number of kilograme: "<<alex.size()<<endl;
-}
+
+class Pipi : public nevoiUmane{
+    public:
+    Pipi(){
+        cout<<"am facut pipi"<<endl;
+    };
+    ~Pipi(){};
+};
+class Caca : public nevoiUmane{
+    public:
+    Caca(){
+        cout<<"am facut caca"<<endl;
+    };
+    ~Caca(){};
+};
+
+
 
 int main(){    
-array<unsigned int, 97> alex;
-cout<<alex[1]<<endl;
 
-printData(alex);
-cout<<alex.max_size()<<endl;
+bool trebuieSaFac = true;
+while(trebuieSaFac){
+int choice = 0;
+cout<<"Alegeti ce vreti sa faceti: \n"<<"1.Pipi \n"<<"2. Caca \n";
+cin>>choice; 
+if(choice == 1){ 
+Pipi amFacutPipi = Pipi();
+
+vector<Pipi> facPipi;
+facPipi.push_back(amFacutPipi);
+for(int i = 0; i < facPipi.size(); i++){
+    facPipi[i];
+    
+}
+break;
+}
+if(choice == 2){ 
+Caca amFacutCaca = Caca();
+
+vector<Caca> facCaca;
+facCaca.push_back(amFacutCaca);
+for(int j = 0; j < facCaca.size(); j++){
+    facCaca[j];
+    
+}
+break;
+}
 
 
 
+
+}
 return 0;
 
 }
