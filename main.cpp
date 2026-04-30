@@ -51,6 +51,7 @@ vecTexture.push_back(ptr);
 for(int i = 0; i < vecTexture.size(); i++){
     cout<<"Vector stored textures: "<<vecTexture[i]<<endl;
 }
+cout<<"Are stored: "<<ptr.use_count()<<endl;
 
 
 return 0;
