@@ -16,22 +16,29 @@
 #include <set>
 using namespace std;
 
-struct Character{
-    
+class Character{
+public:  
+
         enum type{
-        Human,
-        Actor,
-        Legend,
-        Fate
+        HUMAN,
+        ACTOR,
+        LEGEND,
+        FATE
         };
         char sex;
         int age;
         string name;
 
+
+
+
 };
 
+class characterPressets : public Character{
+protected:
 Character mycharacter;
-
+type istype;
+public:
 
 void findSex(){
 do{
@@ -87,7 +94,39 @@ void printCharacter(){
 }
 
 
+
+};
+
+class characterType : public Character{
+protected: 
+type isType;
+public:
+
+characterType(type t) : isType(t)
+{
+
+}
+int getType(){
+
+    switch(isType){
+        case type::HUMAN:
+        return 10;
+        case type::ACTOR:
+        return 20;
+        case type::LEGEND:
+        return 30;
+        case type::FATE:
+        return 40;
+
+    }
+
+
+};
+
+};
+
 int main(){    
+    characterPressets mycharacterPressets;
 
     int score = 0;
     vector<string> qnA = {"What is your name?",
@@ -97,12 +136,12 @@ int main(){
     
 
 cout<<qnA[0]<<endl;
-    name();
+   mycharacterPressets.name();
 cout<<endl<<qnA[1]<<endl;
-    findSex();
+    mycharacterPressets.findSex();
 cout<<endl<<qnA[2];
-    getAge();
-    printCharacter();
+    mycharacterPressets.getAge();
+    mycharacterPressets.printCharacter();
 
 return 0;
 }
