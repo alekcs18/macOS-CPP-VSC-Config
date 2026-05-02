@@ -102,6 +102,9 @@ protected:
 type isType;
 public:
 
+characterType(){
+
+}
 characterType(type t) : isType(t)
 {
 
@@ -116,22 +119,46 @@ int getType(){
         case type::LEGEND:
         return 30;
         case type::FATE:
+        cout<<"You are a fate"<<endl;
         return 40;
+        default:
+        cout<<"Invalid type"<<endl;
 
     }
 
 
+
 };
+    void printType(){
+        switch(isType){
+        case type::HUMAN:
+        cout<<"You are a human"<<endl;
+        break;
+        case type::ACTOR:
+        cout<<"You are an actor"<<endl;
+        break;
+        case type::LEGEND:
+        cout<<"You are legend"<<endl;
+        break;
+        case type::FATE:
+        cout<<"You are a fate"<<endl;
+        break;
+
+
+        }
+    }
 
 };
 
 int main(){    
     characterPressets mycharacterPressets;
+    characterType mycharacterType;
 
     int score = 0;
     vector<string> qnA = {"What is your name?",
          "What is your sex?",
-         "What is your age?"
+         "What is your age?",
+         "What are you?"
         };
     
 
@@ -142,6 +169,7 @@ cout<<endl<<qnA[1]<<endl;
 cout<<endl<<qnA[2];
     mycharacterPressets.getAge();
     mycharacterPressets.printCharacter();
-
+cout<<endl<<qnA[3];
+        mycharacterType.printType(); //TODO
 return 0;
 }
