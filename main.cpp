@@ -147,13 +147,24 @@ int getType(){
 
         }
     }
+    // void assignType(){
+    //     int score = 0;
+    //     cin>>score;
+    //     if(score == 10){
+    //         characterType mycharacterType(characterType::type::HUMAN);
+    //         mycharacterType.printType();
+    //         int value = mycharacterType.getType();
+    //         cout<<"Your type: ";
+    //         mycharacterType.printType();
+
+
+    //     }
+    // }
 
 };
 
 int main(){    
     characterPressets mycharacterPressets;
-    characterType mycharacterType;
-
     int score = 0;
     vector<string> qnA = {"What is your name?",
          "What is your sex?",
@@ -169,7 +180,42 @@ cout<<endl<<qnA[1]<<endl;
 cout<<endl<<qnA[2];
     mycharacterPressets.getAge();
     mycharacterPressets.printCharacter();
+
 cout<<endl<<qnA[3];
-        mycharacterType.printType(); //TODO
+        cin>>score;
+        if(score == 10){
+            characterType mycharacterType(characterType::type::HUMAN);
+            mycharacterType.printType();
+            int value = mycharacterType.getType();
+            cout<<"Your type: ";
+            mycharacterType.printType();
+
+
+        }
+        if(score == 20){
+            characterType mycharacterType(characterType::type::ACTOR);
+            mycharacterType.printType();
+            int value = mycharacterType.getType();
+            cout<<"Your type: ";
+            mycharacterType.printType();
+        }
+        if(score == 30){
+            characterType mycharacterType(characterType::type::LEGEND);
+            mycharacterType.printType();
+            int value = mycharacterType.getType();
+            cout<<"Your type: ";
+            mycharacterType.printType();
+
+        }
+        if(score == 40){
+            characterType mycharacterType(characterType::type::FATE);
+            mycharacterType.printType();
+            int value = mycharacterType.getType();
+            cout<<"Your type: ";
+            mycharacterType.printType();
+            
+        }
+
+
 return 0;
 }
