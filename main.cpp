@@ -23,12 +23,13 @@ public:
         HUMAN,
         ACTOR,
         LEGEND,
-        FATE
+        FATE,
+        UNKNOWN
         };
         char sex;
         int age;
         string name;
-
+        type isType = UNKNOWN;
 
 
 
@@ -37,7 +38,6 @@ public:
 class characterPressets : public Character{
 protected:
 Character mycharacter;
-type istype;
 public:
 
 void findSex(){
@@ -87,17 +87,14 @@ void getAge(){
     }
 }
 void printCharacter(){
-    cout<<"Character pressets: "<<endl;
-    cout<<"Your name: "<<mycharacter.name<<endl;
-    cout<<"Your gender: "<<mycharacter.sex<<endl;
-    cout<<"Your age: "<<mycharacter.age<<endl;
+
 }
 
 
 
 };
 
-class characterType : public Character{
+class characterType : public characterPressets{
 protected: 
 type isType;
 public:
@@ -123,6 +120,7 @@ int getType(){
         return 40;
         default:
         cout<<"Invalid type"<<endl;
+        return 0;
 
     }
 
@@ -130,6 +128,7 @@ int getType(){
 
 };
     void printType(){
+        cout<<"Your type: ";
         switch(isType){
         case type::HUMAN:
         cout<<"You are a human"<<endl;
@@ -143,28 +142,53 @@ int getType(){
         case type::FATE:
         cout<<"You are a fate"<<endl;
         break;
-
-
+        case type::UNKNOWN:
+            cout<<"Unknown"<<endl;
+        
         }
     }
-    // void assignType(){
-    //     int score = 0;
-    //     cin>>score;
-    //     if(score == 10){
-    //         characterType mycharacterType(characterType::type::HUMAN);
-    //         mycharacterType.printType();
-    //         int value = mycharacterType.getType();
-    //         cout<<"Your type: ";
-    //         mycharacterType.printType();
-
-
-    //     }
-    // }
+    void assignType(){
+        int score;
+        cout<<" Enter your score here: "<<endl;
+        while(true){
+            if(!(cin>>score)){
+                cout<<"Invalid input please try again"<<endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+        if(score == 10){
+            isType = HUMAN;     
+        }
+        else if(score == 20){
+            isType = ACTOR;
+        }
+        else if(score == 30){
+            isType = LEGEND;
+        }
+        else if(score == 40){
+            isType = FATE;
+        }
+        else{
+            cout<<"Unknown score please try again!"<<endl;
+            continue;
+        }
+        break;
+    }
+    printType();
+    }
+    void printSummary(){
+            cout<<"Character pressets: "<<endl;
+            cout<<"Your name: "<<mycharacter.name<<endl;
+            cout<<"Your gender: "<<mycharacter.sex<<endl;
+            cout<<"Your age: "<<mycharacter.age<<endl;
+            printType();
+    }
 
 };
 
 int main(){    
-    characterPressets mycharacterPressets;
+    characterType mycharacterType;
     int score = 0;
     vector<string> qnA = {"What is your name?",
          "What is your sex?",
@@ -174,47 +198,14 @@ int main(){
     
 
 cout<<qnA[0]<<endl;
-   mycharacterPressets.name();
+   mycharacterType.name();
 cout<<endl<<qnA[1]<<endl;
-    mycharacterPressets.findSex();
+    mycharacterType.findSex();
 cout<<endl<<qnA[2];
-    mycharacterPressets.getAge();
-    mycharacterPressets.printCharacter();
-
+    mycharacterType.getAge();
 cout<<endl<<qnA[3];
-        cin>>score;
-        if(score == 10){
-            characterType mycharacterType(characterType::type::HUMAN);
-            mycharacterType.printType();
-            int value = mycharacterType.getType();
-            cout<<"Your type: ";
-            mycharacterType.printType();
-
-
-        }
-        if(score == 20){
-            characterType mycharacterType(characterType::type::ACTOR);
-            mycharacterType.printType();
-            int value = mycharacterType.getType();
-            cout<<"Your type: ";
-            mycharacterType.printType();
-        }
-        if(score == 30){
-            characterType mycharacterType(characterType::type::LEGEND);
-            mycharacterType.printType();
-            int value = mycharacterType.getType();
-            cout<<"Your type: ";
-            mycharacterType.printType();
-
-        }
-        if(score == 40){
-            characterType mycharacterType(characterType::type::FATE);
-            mycharacterType.printType();
-            int value = mycharacterType.getType();
-            cout<<"Your type: ";
-            mycharacterType.printType();
-            
-        }
+    mycharacterType.assignType();
+    mycharacterType.printSummary();
 
 
 return 0;
